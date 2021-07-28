@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReservaComponent } from './components/reserva/reserva.component';
+import { ListarReservasComponent } from './components/listar-reservas/listar-reservas.component';
 /* Angular Flex Layout
 import { FlexLayoutModule } from "@angular/flex-layout";*/
 
@@ -24,7 +25,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";*/
     AppComponent,
     RegistrarCliComponent,
     RegistrarRestComponent,
-    ReservaComponent
+    ReservaComponent,
+    ListarReservasComponent
   ],
   imports: [
     BrowserModule,

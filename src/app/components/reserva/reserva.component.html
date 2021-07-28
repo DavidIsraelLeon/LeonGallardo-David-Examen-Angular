@@ -11,8 +11,8 @@
 
   <div *ngIf="cliente"> 
 
-{{cliente.nombre}}
-{{cliente.apellido}}
+  <p>NOMBRE> {{cliente.nombre}}</p>
+<p>APELLIDO>{{cliente.apellido}}</p>
 
   </div>
 
@@ -28,15 +28,49 @@
   </div>
   <div *ngIf="restaurante"> 
 
-    {{restaurante.nombre}}
+    <p >NOMBRE DEL RESTAURANTE {{restaurante.nombre}} </p>
+    <p >DIRECCION DEL RESTAURANTE {{restaurante.direccion}} </p>
+    <p >AFORO DEL RESTAURANTE {{restaurante.aforo}} </p>
 
-    {{restaurante.direccion}}
-
-    
       </div>
 
   <div *ngIf="cliente && restaurante">
-    aqui va formulario de registro de reserva
   </div>
+
+  <form *ngIf="cliente && restaurante" [formGroup]="clienteForm" [formGroup]="restauranteForm" (submit)="buscarResturante()" class="example-form">
+    <mat-card-content>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="ID CLIENTE" value="{{cliente.ID}}" formControlName="ID">
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="NOMBRE CLIENTE" value="{{cliente.nombre}}" >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="APELLIDO CLIENTE" value="{{cliente.apellido}}" formControlName="apellido">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="NOMBRE DEL RESTAURANTE" value="{{restaurante.nombre}}"  formControlName="NOMBRE">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="AFORO" value="{{restaurante.aforo}}" formControlName="apellido">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="FECHA"  formControlName="FECHA" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="PERSONAS QUE ASISTEN"  formControlName="numPersonas" >
+      </mat-form-field>
+
+
+
+    </mat-card-content>
+    <button mat-stroked-button color="red" class="btn-block" type="submit">CREAR RESERVA</button>
+  </form>
 
 </div>

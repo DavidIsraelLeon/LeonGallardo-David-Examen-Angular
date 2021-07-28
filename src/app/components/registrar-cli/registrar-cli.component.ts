@@ -24,6 +24,7 @@ export class RegistrarCliComponent implements OnInit {
   }
 
   ngOnInit(): void {
+ 
   }
   public registrarUsuario(){
     this.RestService.registrar('http://localhost:8080/LeonGallard-David-Examen/rest/crear/registro',

@@ -58,6 +58,19 @@ export class WsJeeService {
     });
   }
 
+  public buscarRersevaCliente(cedula: string){
+    const url = 'http://localhost:8080/LeonGallard-David-Examen/rest/buscar/restaurante';
+    return this.http.get(url, {
+      params: {
+        cedula
+      },
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded'),
+    });
+  }
+
+
+
 
 
 }

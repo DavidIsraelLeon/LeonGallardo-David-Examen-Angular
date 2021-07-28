@@ -1,0 +1,13 @@
+<div class="listarreservas">
+    <div class="listar-form">
+      <form [formGroup]="listarCliForms" (submit)="buscarReservaCliente()"  class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="cédula" formControlName="cedula">
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="red" class="btn-block" type="submit">Buscar cliente</button>
+      </form>
+
+    </div>
+</div>
