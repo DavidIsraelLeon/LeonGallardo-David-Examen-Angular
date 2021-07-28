@@ -24,12 +24,13 @@ export class WsJeeService {
     }
     );
       }
-      public registrarrest(url:string , nombre:any ,aforo:any ,telefono:any,direccion:any){
+      public registrarrest(url:string , nombre:any ,aforo:any,direccion:any ,telefono:any){
+        
         const body = new HttpParams()
         .set('nombre',nombre)
         .set('aforo', aforo)
-        .set('telefono', telefono)
-        .set('direccion', direccion);
+        .set('direccion', direccion)
+        .set('telefono', telefono);
         return this.http.post(url,body.toString(),{
           headers: new HttpHeaders()
             .set('Content-Type', 'application/x-www-form-urlencoded')

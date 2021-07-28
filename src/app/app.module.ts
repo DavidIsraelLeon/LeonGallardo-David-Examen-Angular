@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ReservaComponent } from './components/reserva/reserva.component';
 /* Angular Flex Layout
 import { FlexLayoutModule } from "@angular/flex-layout";*/
 
@@ -22,7 +23,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";*/
   declarations: [
     AppComponent,
     RegistrarCliComponent,
-    RegistrarRestComponent
+    RegistrarRestComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,

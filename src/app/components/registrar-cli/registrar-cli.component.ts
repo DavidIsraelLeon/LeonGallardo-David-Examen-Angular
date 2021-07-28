@@ -36,7 +36,7 @@ export class RegistrarCliComponent implements OnInit {
     )
     .subscribe(respuesta =>{
       console.log('Registro Correcto');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     })
   }
 
