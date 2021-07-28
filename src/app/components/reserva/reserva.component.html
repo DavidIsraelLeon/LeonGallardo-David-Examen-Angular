@@ -1,1 +1,42 @@
-<p>reserva works!</p>
+<div class="reserva">
+  <div class="reserva-form">
+    <form [formGroup]="clienteForm" (submit)="buscarCliente()"  class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="cédula" formControlName="cedula">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="red" class="btn-block" type="submit">Buscar cliente</button>
+    </form>
+
+  <div *ngIf="cliente"> 
+
+{{cliente.nombre}}
+{{cliente.apellido}}
+
+  </div>
+
+    <form *ngIf="cliente" [formGroup]="restauranteForm" (submit)="buscarResturante()" class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="nombre" formControlName="nombre">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="red" class="btn-block" type="submit">Buscar restaurante</button>
+    </form>
+
+  </div>
+  <div *ngIf="restaurante"> 
+
+    {{restaurante.nombre}}
+
+    {{restaurante.direccion}}
+
+    
+      </div>
+
+  <div *ngIf="cliente && restaurante">
+    aqui va formulario de registro de reserva
+  </div>
+
+</div>

@@ -21,23 +21,43 @@ export class WsJeeService {
     return this.http.post(url,body.toString(),{
       headers: new HttpHeaders()
         .set('Content-Type', 'application/x-www-form-urlencoded')
-    }
-    );
-      }
-      public registrarrest(url:string , nombre:any ,aforo:any,direccion:any ,telefono:any){
-        
-        const body = new HttpParams()
-        .set('nombre',nombre)
-        .set('aforo', aforo)
-        .set('direccion', direccion)
-        .set('telefono', telefono);
-        return this.http.post(url,body.toString(),{
-          headers: new HttpHeaders()
-            .set('Content-Type', 'application/x-www-form-urlencoded')
-        }
-        );
-          }
-    
-    
-    
-    }
+    });
+  }
+
+  public registrarrest(url:string , nombre:any ,aforo:any,direccion:any ,telefono:any){
+    const body = new HttpParams()
+    .set('nombre',nombre)
+    .set('aforo', aforo)
+    .set('direccion', direccion)
+    .set('telefono', telefono);
+    return this.http.post(url,body.toString(),{
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    });
+  }
+
+  public buscarCliente(cedula: string){
+    const url = 'http://localhost:8080/LeonGallard-David-Examen/rest/buscar/cliente';
+    return this.http.get(url, {
+      params: {
+        cedula
+      },
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded'),
+    });
+  }
+
+  public buscarRestaurante(nombre: string){
+    const url = 'http://localhost:8080/LeonGallard-David-Examen/rest/buscar/restaurante';
+    return this.http.get(url, {
+      params: {
+        nombre
+      },
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded'),
+    });
+  }
+
+
+
+}
