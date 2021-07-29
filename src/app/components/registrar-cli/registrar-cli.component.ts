@@ -15,12 +15,12 @@ export class RegistrarCliComponent implements OnInit {
 
   constructor(private RestService : WsJeeService, private formBuilder: FormBuilder,private router: Router) { 
     this.form1= this.formBuilder.group({
-      cedula : ['',Validators.required,Validators.pattern],
-      nombre: ['',Validators.required],
-      apellido: ['',Validators.required],
-      telefono: ['',Validators.required],
-      direccion: ['',Validators.required],
-      correo: ['',Validators.required,Validators.pattern]
+      cedula : ['',Validators.pattern],
+      nombre: [],
+      apellido: [],
+      telefono: [],
+      direccion: [],
+      correo: []
     });
   }
 

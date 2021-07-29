@@ -1,4 +1,4 @@
-<div class="listarreservas">
+    <div>
     <div class="listar-form">
       <form [formGroup]="listarCliForms" (submit)="buscarReservaCliente()"  class="example-form">
         <mat-card-content>
@@ -11,12 +11,11 @@
 
     </div>
 
-    <div *ngIf="cliente"> 
 
-      <p>NOMBRE> {{cliente.nombre}}</p>
-    <p>APELLIDO>{{cliente.apellido}}</p>
-    
+      <ul class="cliente">
+      <li  *ngFor="let p of reserva">
+      <span class="badge">{{p.id}}</span> {{p.name}}
+      <a>no tiene reservas {{cliente.nombre}}</a>
+    </li>
+    </ul>
       </div>
-
-    
-</div>

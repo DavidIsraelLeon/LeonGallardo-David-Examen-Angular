@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { WsJeeService } from 'src/app/services/ws-jee.service';
+import { ReservaComponent } from '../reserva/reserva.component';
 
 @Component({
   selector: 'app-listar-reservas',
@@ -11,6 +12,8 @@ export class ListarReservasComponent implements OnInit {
 
   public listarCliForms: FormGroup;
   public cliente:any;
+  public reserva:any;
+
 
 
   constructor(
@@ -28,7 +31,7 @@ export class ListarReservasComponent implements OnInit {
   buscarReservaCliente() {
     const cedula = this.listarCliForms.get('cedula')?.value;
     this.restService.buscarRersevaCliente(cedula).subscribe(response => {
-      this.cliente = response;
+      this.reserva = response;
     });
   }
 
