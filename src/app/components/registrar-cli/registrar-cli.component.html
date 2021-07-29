@@ -6,35 +6,37 @@
           <mat-card-title>Registrar</mat-card-title>
         </mat-card-header>
 
-        <form [formGroup] = "form1" (submit)="registrarUsuario()"  class="example-form">
+        <form [formGroup] = "form1" (submit)="registrarUsuario()" #f="ngForm" class="example-form">
 
+
+          
           <mat-card-content>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Cédula" formControlName="cedula" type="number" minlength ="10" ngModel pattern="[0-9]{10}">
+              <input matInput placeholder="Cédula" formControlName="cedula" name="cedula" type="text" pattern="[0-9]{10}" >
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="nombre" formControlName="nombre" ngModel required >
+              <input matInput placeholder="nombre" formControlName="nombre" >
             </mat-form-field>
 
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="apellido" formControlName="apellido" type="text" ngModel required>
+              <input matInput placeholder="apellido" formControlName="apellido" type="text"  >
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="direccion" formControlName="direccion" type="text" ngModel required>
+                <input matInput placeholder="direccion" formControlName="direccion" type="text" >
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="correo" formControlName="correo" type="email" required="true">
+                <input matInput placeholder="correo" formControlName="correo" type="email" pattern="/\S+@\S+\.\S+/" >
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="telefono" formControlName="telefono" type="number" required="true">
+                <input matInput placeholder="telefono" formControlName="telefono" type="number" >
               </mat-form-field>
 
           </mat-card-content>
 
-          <button mat-stroked-button color="red" class="btn-block">Crear Cuenta</button>
+          <button mat-stroked-button color="red" [disabled]="f.invalid" class="btn-block">Crear Cuenta</button>
 
         </form>
       </mat-card>

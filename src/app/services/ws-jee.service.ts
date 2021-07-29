@@ -36,6 +36,18 @@ export class WsJeeService {
     });
   }
 
+  public reservarRestaurante(url:string , nombre:any ,cedula:any,numeroPersonas:any,fechaIngreso:any){
+    const body = new HttpParams()
+    .set('nombre',nombre)
+    .set('cedula',cedula)
+    .set('numeroPersonas',numeroPersonas)
+    .set('fechaIngreso', fechaIngreso);
+    return this.http.post(url,body.toString(),{
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    });
+  }
+
   public buscarCliente(cedula: string){
     const url = 'http://localhost:8080/LeonGallard-David-Examen/rest/buscar/cliente';
     return this.http.get(url, {
@@ -59,7 +71,7 @@ export class WsJeeService {
   }
 
   public buscarRersevaCliente(cedula: string){
-    const url = 'http://localhost:8080/LeonGallard-David-Examen/rest/buscar/restaurante';
+    const url = 'http://localhost:8080/LeonGallard-David-Examen/rest/reservas/listarCliente';
     return this.http.get(url, {
       params: {
         cedula

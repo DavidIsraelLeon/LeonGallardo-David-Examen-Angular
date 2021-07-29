@@ -37,15 +37,14 @@
   <div *ngIf="cliente && restaurante">
   </div>
 
-  <form *ngIf="cliente && restaurante" [formGroup]="clienteForm" [formGroup]="restauranteForm" (submit)="buscarResturante()" class="example-form">
+  <form *ngIf="cliente && restaurante" [formGroup]="reservaForm"(submit)="reservarRestaurante()" class="example-form">
     <mat-card-content>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="ID CLIENTE" value="{{cliente.ID}}" formControlName="ID">
-      </mat-form-field>
-      
       <mat-form-field class="example-full-width">
         <input matInput placeholder="NOMBRE CLIENTE" value="{{cliente.nombre}}" >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="cedula" value="{{cliente.cedula}}" formControlName="cedula" >
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
@@ -53,18 +52,18 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="NOMBRE DEL RESTAURANTE" value="{{restaurante.nombre}}"  formControlName="NOMBRE">
+        <input matInput placeholder="NOMBRE DEL RESTAURANTE" value="{{restaurante.nombre}}"  formControlName="nombre">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="AFORO" value="{{restaurante.aforo}}" formControlName="apellido">
+        <input matInput placeholder="AFORO" value="{{restaurante.aforo}}" formControlName="aforo">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="FECHA"  formControlName="FECHA" >
+        <input matInput placeholder="FECHA"  formControlName="fechaIngreso" >
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="PERSONAS QUE ASISTEN"  formControlName="numPersonas" >
+        <input matInput placeholder="PERSONAS QUE ASISTEN"  formControlName="numeroPersonas" >
       </mat-form-field>
 
 

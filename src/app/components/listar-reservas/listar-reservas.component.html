@@ -6,8 +6,17 @@
             <input matInput placeholder="cédula" formControlName="cedula">
           </mat-form-field>
         </mat-card-content>
-        <button mat-stroked-button color="red" class="btn-block" type="submit">Buscar cliente</button>
+        <button mat-stroked-button color="red" class="btn-block" type="submit">BUSCAR RESERVAS DEL CLIENTE</button>
       </form>
 
     </div>
+
+    <div *ngIf="cliente"> 
+
+      <p>NOMBRE> {{cliente.nombre}}</p>
+    <p>APELLIDO>{{cliente.apellido}}</p>
+    
+      </div>
+
+    
 </div>
