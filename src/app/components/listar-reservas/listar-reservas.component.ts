@@ -13,6 +13,8 @@ export class ListarReservasComponent implements OnInit {
   public listarCliForms: FormGroup;
   public cliente:any;
   public reserva:any;
+  public reservacli:any;
+  public listarResForms:FormGroup;
 
 
 
@@ -24,6 +26,9 @@ export class ListarReservasComponent implements OnInit {
       cedula : []
     
    });
+   this.listarResForms=this.formBuilder.group({
+     nombre : []
+   });
   }
    ngOnInit(): void {
   }
@@ -32,6 +37,13 @@ export class ListarReservasComponent implements OnInit {
     const cedula = this.listarCliForms.get('cedula')?.value;
     this.restService.buscarRersevaCliente(cedula).subscribe(response => {
       this.reserva = response;
+    });
+  }
+
+  buscarReservaRestaurante() {
+    const nombre = this.listarResForms.get('nombre')?.value;
+    this.restService.buscarReservaRestaurante(nombre).subscribe(response => {
+      this.reservacli = response;
     });
   }
 

@@ -65,8 +65,8 @@ export class ReservaComponent implements OnInit {
     this.restService.reservarRestaurante('http://localhost:8080/LeonGallard-David-Examen/rest/crear/creareserva',
     this.reservaForm.controls['cedula'].value,
     this.reservaForm.controls['nombre'].value, 
-    this.reservaForm.controls['numeroPersonas'].value,
-    this.reservaForm.controls['fechaIngreso'].value
+    this.reservaForm.controls['fechaIngreso'].value,
+    this.reservaForm.controls['numeroPersonas'].value
     )
     .subscribe(respuesta =>{
       console.log('Registro Correcto');

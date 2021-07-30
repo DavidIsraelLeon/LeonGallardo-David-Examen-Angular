@@ -1,9 +1,9 @@
-    <div>
+  <div>
     <div class="listar-form">
       <form [formGroup]="listarCliForms" (submit)="buscarReservaCliente()"  class="example-form">
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="cédula" formControlName="cedula">
+            <input matInput placeholder="cédula" formControlName="cedula" ngModel required>
           </mat-form-field>
         </mat-card-content>
         <button mat-stroked-button color="red" class="btn-block" type="submit">BUSCAR RESERVAS DEL CLIENTE</button>
@@ -11,11 +11,47 @@
 
     </div>
 
+    
+      <form [formGroup]="listarResForms" (submit)="buscarReservaRestaurante()"  class="example-form1">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="nombre" formControlName="nombre" ngModel required>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="red" class="btn-block" type="submit">BUSCAR RESERVAS DEL RESTAURANTE</button>
+      </form>
 
-      <ul class="cliente">
-      <li  *ngFor="let p of reserva">
-      <span class="badge">{{p.id}}</span> {{p.name}}
-      <a>no tiene reservas {{cliente.nombre}}</a>
-    </li>
-    </ul>
+    <div *ngIf="reserva" class="cliente">
+      <table width="100%" class="table">
+        <tr>
+          <th align="left">NOMBRE</th>
+          <th align="left">NUMERO PERSONAS</th>
+          <th align="left">FECHA</th>
+        </tr>
+        <tr  *ngFor="let p of reserva">
+          <td>{{p.clienteReserva.nombre}}</td>
+          <td>{{p.numeroPersonas}}</td>
+          <td>{{p.fecha}}</td>
+        </tr>        
+      </table>
+  </div>
+
+  <div  *ngIf='reservacli' class="reservaCli">
+    <table width="100%" class="table1">
+      <tr>
+        <th align="left">NOMBRE DE RESTAURANTE</th>
+        <th align="left">Numero Personas de Reserva</th>
+        <th align="left">FECHA </th>
+      </tr>
+      <tr  *ngFor="let a of reservacli">
+        <td>{{a.restauranteReserva.nombre}}</td>
+        <td>{{a.numeroPersonas}}</td>
+        <td>{{a.fecha}}</td>
+      </tr>        
+    </table>
+</div>
+
+
+
+
       </div>

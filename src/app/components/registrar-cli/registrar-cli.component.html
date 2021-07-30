@@ -12,26 +12,26 @@
           
           <mat-card-content>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Cédula" formControlName="cedula" name="cedula" type="text" pattern="[0-9]{10}" >
+              <input matInput placeholder="Cédula" formControlName="cedula" name="cedula" type="text" ngModel required pattern="[0-9]{10}" >
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="nombre" formControlName="nombre" ngModel required >
+              <input matInput placeholder="NOMBRE" formControlName="nombre" ngModel required >
             </mat-form-field>
 
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="apellido" formControlName="apellido" type="text" ngModel required >
+              <input matInput placeholder="APELLIDO" formControlName="apellido" type="text" ngModel required >
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="direccion" formControlName="direccion" type="text" ngModel required >
+                <input matInput placeholder="DIRECCION" formControlName="direccion" type="text" ngModel required >
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="correo" formControlName="correo" type="email" ngModel required >
+                <input matInput placeholder="CORREO" formControlName="correo" type="email" ngModel required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" >
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="telefono" formControlName="telefono" type="number" ngModel required >
+                <input matInput placeholder="TELEFONO" formControlName="telefono" type="number" ngModel required >
               </mat-form-field>
 
           </mat-card-content>

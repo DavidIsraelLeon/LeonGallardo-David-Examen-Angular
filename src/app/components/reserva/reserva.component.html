@@ -1,31 +1,31 @@
 <div class="reserva">
   <div class="reserva-form">
-    <form [formGroup]="clienteForm" (submit)="buscarCliente()"  class="example-form">
+    <form [formGroup]="clienteForm" (submit)="buscarCliente()" #f="ngForm" class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="cédula" formControlName="cedula">
+          <input matInput placeholder="CEDULA" formControlName="cedula" ngModel required>
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="red" class="btn-block" type="submit">Buscar cliente</button>
+      <button mat-stroked-button color="red" class="btn-block" [disabled]="f.invalid" type="submit">Buscar cliente</button>
     </form>
 
   <div *ngIf="cliente"> 
 
   <p>NOMBRE> {{cliente.nombre}}</p>
-<p>APELLIDO>{{cliente.apellido}}</p>
+  <p>APELLIDO>{{cliente.apellido}}</p>
 
   </div>
 
-    <form *ngIf="cliente" [formGroup]="restauranteForm" (submit)="buscarResturante()" class="example-form">
+    <form *ngIf="cliente" [formGroup]="restauranteForm" (submit)="buscarResturante()" #f="ngForm" class="example-form2">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="nombre" formControlName="nombre">
+          <input matInput placeholder="nombre" formControlName="nombre" ngModel required>
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="red" class="btn-block" type="submit">Buscar restaurante</button>
+      <button mat-stroked-button color="red" class="btn-block" [disabled]="f.invalid" type="submit">Buscar restaurante</button>
     </form>
 
-  </div>
+  
   <div *ngIf="restaurante"> 
 
     <p >NOMBRE DEL RESTAURANTE {{restaurante.nombre}} </p>
@@ -34,42 +34,30 @@
 
       </div>
 
-  <div *ngIf="cliente && restaurante">
-  </div>
+ 
+  <div *ngIf="cliente && restaurante" class="container" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="box">
+          <mat-card-header>
+            <mat-card-title>Crear reserva</mat-card-title>
+          </mat-card-header>
 
-  <form *ngIf="cliente && restaurante" [formGroup]="reservaForm"(submit)="reservarRestaurante()" class="example-form">
+  <form  [formGroup]="reservaForm"(submit)="reservarRestaurante()" class="example-form1">
     <mat-card-content>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="NOMBRE CLIENTE" value="{{cliente.nombre}}" >
+        <input matInput placeholder="cedula"  formControlName="cedula" >
       </mat-form-field>
-
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="cedula" value="{{cliente.cedula}}" formControlName="cedula" >
+        <input matInput placeholder="NOMBRE DEL RESTAURANTE" formControlName="nombre">
       </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="APELLIDO CLIENTE" value="{{cliente.apellido}}" formControlName="apellido">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="NOMBRE DEL RESTAURANTE" value="{{restaurante.nombre}}"  formControlName="nombre">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="AFORO" value="{{restaurante.aforo}}" formControlName="aforo">
-      </mat-form-field>
-
       <mat-form-field class="example-full-width">
         <input matInput placeholder="FECHA"  formControlName="fechaIngreso" >
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="PERSONAS QUE ASISTEN"  formControlName="numeroPersonas" >
       </mat-form-field>
-
-
-
     </mat-card-content>
     <button mat-stroked-button color="red" class="btn-block" type="submit">CREAR RESERVA</button>
   </form>
-
+</mat-card>
+  </div>
 </div>
